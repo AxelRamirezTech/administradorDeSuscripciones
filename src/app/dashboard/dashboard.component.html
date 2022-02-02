@@ -1,0 +1,56 @@
+
+<body class="body">
+
+
+
+<div class="form">
+<table>
+    <td>
+        <tr>id</tr>
+        <tr *ngFor="let temp of customer">{{temp.id}}</tr>
+    </td>
+    <td>
+        <tr>Rut</tr>
+        <tr *ngFor="let temp of customer">{{temp.rut}}</tr>
+    </td>
+    <td>
+        <tr>Rut Empresa</tr>
+        <tr *ngFor="let temp of customer">{{temp.rutBusiness}}</tr>
+    </td>
+    <td>
+        <tr>Nombre completo</tr>
+        <tr *ngFor="let temp of customer">{{temp.fullName}}</tr>
+    </td>
+</table>
+
+<button (click)="saveNew()">
+    agregar nombre
+</button>
+<br><br>
+
+<form (ngSubmit)="saveNew()">
+
+    <label for="rut">Rut: </label>
+    <input id="rut" name="rut" type="text">
+
+    <br>
+
+    <label for="RutEmpresa">Rut Empresa: </label>
+    <input id="RutEmpresa" name="rutEmpresa" type="text">
+
+
+    <br>
+
+    <label for="fullName">Nombre completo: </label>
+    <input id="fullName" name="fullName" type="text">
+    <br>
+</form>
+
+<button (click)="saveNew()">
+    Enviar
+</button>
+
+
+</div>
+
+</body>

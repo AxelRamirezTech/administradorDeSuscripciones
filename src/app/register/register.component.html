@@ -1,0 +1,37 @@
+
+
+<body class='body'>
+    <div class='register'>
+        <h1>Registro</h1>
+        <br>
+        <form [formGroup]="form" (ngSubmit)="newUser()">
+            <mat-form-field class="ancho" appearance="fill">
+              <mat-label>Email</mat-label>
+              <input type="text" matInput autocomplete="off" formControlName="email">
+            </mat-form-field>
+      
+            <mat-form-field class="ancho" appearance="fill">
+              <mat-label>Contraseña</mat-label>
+              <input type="password" matInput autocomplete="off" formControlName="password">
+            </mat-form-field>
+            
+            <button type="submit" class="ancho button" mat-raised-button color="primary" [disabled]="form.invalid" (click)="correctVerification()">Registrarse</button>
+          </form>
+
+        <br>
+        <p><a routerLink="">Inicio de sesión</a></p>
+
+
+    </div>
+  <ul>
+      <li *ngFor="let temp of auth">
+          {{temp.email}} <br>
+      </li>   
+  </ul>
+  <ul>
+    <li *ngFor="let temp of auth">
+        {{temp.id}} <br>
+    </li>   
+</ul>
+
+</body>
