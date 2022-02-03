@@ -32,8 +32,27 @@ export class TablePaginationExampleComponent implements AfterViewInit{
       const newCustomer = {uuid:tempUuid ,Rut:'12345', companyRut:'2341234', fullName:'panconqueso'}
       this.CUSTOMERS.push(newCustomer);
       this.dataSource.data = CUSTOMERS
-      console.log(newCustomer)
     }
+
+  editCustomer(element: any){
+
+  }
+
+  deleteCustomer(element: CustomerI){
+
+    const index = CUSTOMERS.indexOf(element, 0);
+    if (index > -1) {
+      CUSTOMERS.splice(index, 1);
+    this.dataSource.data = CUSTOMERS
+    }
+
+  }
+
+  
+
+  customerDetail(element: any){
+    
+  }
 
 
 

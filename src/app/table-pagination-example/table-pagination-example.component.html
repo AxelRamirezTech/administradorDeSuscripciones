@@ -33,13 +33,19 @@
         <th mat-header-cell *matHeaderCellDef> Acciones </th>
         <td mat-cell *matCellDef="let element">
           <a>
-              <mat-icon>edit</mat-icon>
+            <button mat-icon-button (click)="editCustomer(element)">
+            <mat-icon>edit</mat-icon>
+            </button>
           </a>
           <a>
+            <button mat-icon-button (click)="customerDetail(element)">
             <mat-icon>search</mat-icon>
+            </button>
           </a>
           <a>
+            <button mat-icon-button (click)="deleteCustomer(element)">
             <mat-icon>delete</mat-icon>
+            </button>
           </a>
       </ng-container>
 
