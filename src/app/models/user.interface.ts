@@ -1,5 +1,5 @@
-export interface AuthI{
-    id?: string;
+export interface UserI{
+    id?: number;
     email: string;
     password: string;
 }

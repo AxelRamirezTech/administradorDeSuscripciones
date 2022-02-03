@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl,FormGroup , FormArray, Validators} from '@angular/forms';
-import { DataService } from '../service/data.service';
-import { CustomerI } from '../interface/customer.interface';
-
+import { CUSTOMERS } from '../mock/mock-customers';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,24 +8,15 @@ import { CustomerI } from '../interface/customer.interface';
 })
 export class DashboardComponent implements OnInit {
   
-  customer: CustomerI[] = [];
+  CUSTOMERS= CUSTOMERS;
 
+  constructor() { }
 
-  constructor(private dataSvc: DataService) { }
+  
 
   ngOnInit(): void {
-
-
     }
-
-    saveNew(){
-   
-
-    
-
-    }
-
-
-    
-
+  
 }
+    
+

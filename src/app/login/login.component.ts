@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup , FormArray, Validators} from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { USERS } from '../mock/mock-useres';
+import { USERS } from '../mock/mock-users';
+import { AuthService } from '../services/auth.service';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @Component({
@@ -11,10 +13,11 @@ import { USERS } from '../mock/mock-useres';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  auth= USERS;
+
+  USERS= USERS;
   form: FormGroup;
 
-  constructor(private _snackBar: MatSnackBar, private router: Router) {
+  constructor(private _snackBar: MatSnackBar, private router: Router, private auth: AuthService) {
     this.form = this.buildForm();
   }
 
@@ -29,9 +32,11 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    const {email,password} = this.form.value;
-    if(email==='a@a.a' && password==='a'){
-      this.fakeAccess()
+    const {email, password} = this.form.value;
+    this.auth.checkUser(email,password)
+    
+    if(this.auth.isUserLoggedIn == true){
+      this.access()
     }
     else{
       this.error()
@@ -48,10 +53,11 @@ export class LoginComponent implements OnInit {
   }
 
 
-  fakeAccess(){
+  access(){
   this.router.navigate(['dashboard'])
   }
 
+ 
 
 
 

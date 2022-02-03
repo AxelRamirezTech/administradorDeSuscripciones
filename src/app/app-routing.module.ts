@@ -7,7 +7,7 @@ import { AdminGuard } from './admin.guard'
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  {path:'',component:LoginComponent},
+  {path:'',component:LoginComponent}, // cambiar despues a component:LoginComponent  DashboardComponent
   {path:'register',component:RegisterComponent},
   {path:'dashboard',component:DashboardComponent,canActivate:[AdminGuard]},
   {path:'**',component:PageNotFoundComponent}
