@@ -27,8 +27,8 @@ export interface PlanI{
     validated: boolean;
     deleted?: boolean;
 
-    createdAt:string;//string/date?
-    creadtedBy:string;
+    creadtedBy?:string;
+    createdAt?:string;//string/date?
     updatedAt?:string;
     updatedBy?:string;
 }

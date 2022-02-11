@@ -6,18 +6,24 @@
         <div mat-subheader>Suscripciones</div>
         <mat-list-item >
         <mat-icon mat-list-icon>star</mat-icon>
-        <div mat-line>id: {{data.uuid}}</div>
+            <div mat-line >Id: {{data.subscription.uuid}}</div>
+            <div mat-line >Precio: {{data.subscription.price}}</div>
+            <div mat-line >Duración en meses: {{data.subscription.duration}}</div>
         </mat-list-item>
 
 
-        <mat-divider></mat-divider>
+        
         <div mat-subheader>Planes</div>
         <mat-list-item *ngFor="let plan of data.subscription.plan">
         <mat-icon mat-list-icon>note</mat-icon>
-        <div mat-line>{{plan.name}}</div>
-        <div mat-line>Precio: {{plan.price}} </div>
-        <div mat-line>Duracion: {{plan.duration}} Meses </div>
-        <div mat-line>Creación: {{plan.createdAt}} </div>
+            <div mat-line>Id: {{plan.uuid}}</div>
+            <div mat-line>Nombre del plan asociado: {{plan.name}}</div>
+            <div mat-line>Precio: {{plan.price}}</div>
+            <div mat-line>Duración en meses: {{plan.duration}}</div>
+            <div mat-line>Fecha de creación: {{plan.createdAt}}</div>
+            <div mat-line>Creado por: {{plan.creadtedBy}}</div>
+            <div mat-line>Fecha de modificación: {{plan.updatedAt}}</div>
+            <div mat-line>Modificado por: {{plan.updatedBy}}</div>
         </mat-list-item>
     </div>
 

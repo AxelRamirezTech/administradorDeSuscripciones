@@ -8,22 +8,17 @@
               <mat-label>Rut</mat-label>
               <input type="text" matInput autocomplete="off" formControlName="Rut">
             </mat-form-field>
-      
             <mat-form-field class="ancho" appearance="fill">
             <mat-label>Rut de empresa</mat-label>
               <input type="text" matInput autocomplete="off" formControlName="companyRut" >
             </mat-form-field>
-
             <mat-form-field class="ancho" appearance="fill">
               <mat-label>Nombre completo</mat-label>
                 <input type="text" matInput autocomplete="off" formControlName="fullName">
-            </mat-form-field>
-            
+            </mat-form-field>     
             <button type="submit" class="ancho button" mat-raised-button color="primary" [disabled]="form.invalid">Enviar</button>
         </form>
     </div>
-
-
 </body>
 
 

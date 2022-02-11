@@ -18,7 +18,7 @@ export class PlanService {
     const validated= false
     const newPlan = {uuid, name, price, duration, validated, createdAt, creadtedBy}
     this.plans.push(newPlan);
-    console.log(newPlan)
+    
   }
 
   deletePlan(planToDelete:PlanI){

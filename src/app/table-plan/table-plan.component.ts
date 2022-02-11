@@ -39,7 +39,6 @@ export class TablePlanComponent implements AfterViewInit {
   }
 
 
-
   AddPlans(){
     const addDialog=this.dialog.open(AddPlanComponent)
     firstValueFrom(addDialog.afterClosed()).then(value=>{

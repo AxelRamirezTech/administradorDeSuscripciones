@@ -17,7 +17,7 @@ export class AuthService {
   addNewUser(email:string, password:string){
     const newUser = {email ,password}
     this.users.push(newUser);
-    console.log(newUser)
+ 
   }
 
   
