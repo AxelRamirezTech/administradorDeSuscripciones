@@ -32,9 +32,10 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    const sendEmail = this.form.value.email;
+    this.auth.receiveEmail(sendEmail)
     const {email, password} = this.form.value;
     this.auth.checkUser(email,password)
-    
     if(this.auth.isUserLoggedIn == true){
       this.access()
     }

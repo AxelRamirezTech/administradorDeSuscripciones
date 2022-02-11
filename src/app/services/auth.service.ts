@@ -1,16 +1,20 @@
 import { Injectable } from '@angular/core';
 import { USERS } from '../mock/mock-users';
-
+import { LoginComponent } from '../login/login.component';
+import { FormGroup } from '@angular/forms';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
+  
+  userSvc = '';
   constructor() { }
-  users= [...USERS];
-  isUserLoggedIn= false; //cambiar a false despues
+    users= [...USERS];
+    isUserLoggedIn= false; 
+
+
   
   
 
@@ -19,6 +23,7 @@ export class AuthService {
     this.users.push(newUser);
  
   }
+
 
   
   checkUser(email:string, password:string){
@@ -35,6 +40,13 @@ export class AuthService {
     }
     return true;
   }
+
+  receiveEmail(userReceived:string){ 
+      this.userSvc = userReceived;
+  }
+
+
+
 
 
 }

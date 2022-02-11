@@ -36,7 +36,7 @@ export class AddPlanComponent implements OnInit {
 
   Addnew() {
     const {name, price, duration} = this.form.value;
-    const creadtedBy = this.auth.users[0].email;
+    const creadtedBy = this.auth.userSvc; //funciona solo fijo
     console.log(creadtedBy)
     const createdAt = this.today;
     this.dialogRef.close({...this.data,name,price,duration,creadtedBy,createdAt})
