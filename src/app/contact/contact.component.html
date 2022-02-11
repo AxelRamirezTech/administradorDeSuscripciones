@@ -1,0 +1,54 @@
+
+<body class="container">
+    <div class="container-text">
+        <h1>Formulario de contacto</h1>
+        <div class="container-form">
+            <form [formGroup]="form" (ngSubmit)="newPlan()" >
+
+                <mat-form-field class="fullWidth" >
+                    <mat-label>Nombre Completo</mat-label>
+                    <input type="text" matInput autocomplete="off" formControlName="fullName" placeholder="Ingrese su nombre">
+                    <mat-error> Debes ingresar un nombre.</mat-error>
+                </mat-form-field>
+
+
+
+                <mat-form-field class="fullWidth">
+                    <mat-label>Correo</mat-label>
+                    <input type="text" matInput autocomplete="off" formControlName="email" placeholder="Ingrese su correo">
+                    <mat-error *ngIf="this.form.value.email"> Correo inválido.</mat-error>
+                    <mat-error *ngIf="this.form.value.email === ''"> Debes ingresar un correo.</mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="fullWidth">
+                    <mat-label>Teléfono</mat-label>
+                    <input type="text" matInput autocomplete="off" formControlName="phone" placeholder="+56 (#) #### ####">
+                    <mat-error> Debes ingresar un teléfono.</mat-error>
+                </mat-form-field>
+
+
+                    
+
+                <mat-form-field class="fullWidth">
+                    <mat-label>Nombre de la empresa</mat-label>
+                    <input type="text" matInput autocomplete="off" formControlName="companyName" placeholder="Ingrese nombre de empresa">
+                    <mat-error> Debes ingresar un nombre de empresa.</mat-error>
+                </mat-form-field>
+
+
+                <mat-form-field class="container-message" appearance="fill">
+                    <mat-label>Mensaje</mat-label>
+                    <textarea  matInput formControlName="message" #message maxlength="500" placeholder="Redacte aquí el motivo de su contacto, sea lo mas detallado posible"></textarea>
+                    <mat-hint align="end">{{message.value.length}} / 500</mat-hint>
+                    <mat-error> Debes ingresar un mensaje.</mat-error>
+                </mat-form-field>
+           
+
+                <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">Enviar</button>
+            </form>
+        </div>
+
+
+    </div>
+</body>
+

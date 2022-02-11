@@ -1,0 +1,35 @@
+<body class='body'>
+    <div class='register'>
+      
+        <h1>Agregar plan</h1>
+        <br>
+        <form [formGroup]="form" (ngSubmit)="Addnew()">
+            <mat-form-field class="ancho" appearance="fill">
+              <mat-label>Nombre</mat-label>
+              <input type="text" matInput autocomplete="off" formControlName="name">
+            </mat-form-field>
+      
+            <mat-form-field class="ancho" appearance="fill">
+            <mat-label>Precio</mat-label>
+              <input type="number" matInput autocomplete="off" formControlName="price" >
+            </mat-form-field>
+
+            <mat-form-field class="ancho" appearance="fill">
+              <mat-label>Duracion</mat-label>
+                <input type="number" matInput autocomplete="off" formControlName="duration">
+            </mat-form-field>
+
+            
+            <button type="submit" class="ancho button" mat-raised-button color="primary" [disabled]="form.invalid">Enviar</button>
+        </form>
+
+  
+
+    </div>
+
+
+</body>
+
+
+
+

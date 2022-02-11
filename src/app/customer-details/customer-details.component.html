@@ -1,0 +1,39 @@
+
+
+<h1>Cliente: {{data.fullName}}</h1>
+<mat-list>
+    <div *ngIf="data.subscription">
+        <div mat-subheader>Suscripciones</div>
+        <mat-list-item >
+        <mat-icon mat-list-icon>star</mat-icon>
+        <div mat-line>id: {{data.uuid}}</div>
+        </mat-list-item>
+
+
+        <mat-divider></mat-divider>
+        <div mat-subheader>Planes</div>
+        <mat-list-item *ngFor="let plan of data.subscription.plan">
+        <mat-icon mat-list-icon>note</mat-icon>
+        <div mat-line>{{plan.name}}</div>
+        <div mat-line>Precio: {{plan.price}} </div>
+        <div mat-line>Duracion: {{plan.duration}} Meses </div>
+        <div mat-line>Creación: {{plan.createdAt}} </div>
+        </mat-list-item>
+    </div>
+
+    <div *ngIf="!data.subscription">
+        <div mat-subheader>Suscripciones</div>
+        <mat-list-item >
+        <mat-icon mat-list-icon>star</mat-icon>
+        <div mat-line>El usuario no tiene Suscripciones</div>
+        </mat-list-item>
+
+        <mat-divider></mat-divider>
+        <div mat-subheader>Planes</div>
+        <mat-list-item>
+        <mat-icon mat-list-icon>note</mat-icon>
+        <div mat-line>El usuario no tiene planes</div>
+        </mat-list-item>
+    </div>
+
+</mat-list>

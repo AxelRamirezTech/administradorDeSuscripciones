@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl,FormGroup , FormArray, Validators} from '@angular/forms';
-import { USERS } from '../mock/mock-users';
+import { FormControl,FormGroup, Validators} from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,8 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
-  USERS= USERS;
+  
 
   form: FormGroup;
 
@@ -66,6 +63,5 @@ export class RegisterComponent implements OnInit {
       password: new FormControl('', [Validators.required]),
       repeatPassword: new FormControl('', [Validators.required])
     });
-
   }
 }
