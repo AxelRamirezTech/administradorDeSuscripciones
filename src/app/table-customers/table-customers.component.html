@@ -38,7 +38,7 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Habilitado </th>
         <td mat-cell *matCellDef="let element"> 
           <mat-slide-toggle [(ngModel)]="element.enabled"></mat-slide-toggle>
-      </td>
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="suscripcion/plan">  
@@ -51,7 +51,7 @@
             </button>
           </a>
           <a>
-            <button mat-icon-button (click)="addPlanToCustomer(element)">
+            <button *ngIf=" !element.hasOwnProperty('subscription') && element.enabled===true" mat-icon-button (click)="addPlanToCustomer(element)">
             <mat-icon>add</mat-icon>
             </button>
           </a>

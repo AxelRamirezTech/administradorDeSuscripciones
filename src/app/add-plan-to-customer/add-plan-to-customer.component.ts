@@ -4,6 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CustomerI, PlanI } from '../models/customer.inferface';
 import { PlanService } from '../services/plan.service'
 import { v4 as uuidv4 } from 'uuid';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -17,8 +18,12 @@ export class AddPlanToCustomerComponent implements OnInit {
   form: FormGroup;
   date = new Date();
   
-  constructor(@Inject(MAT_DIALOG_DATA) public selectedCustomer:CustomerI, private dialogRef:MatDialogRef<AddPlanToCustomerComponent>, private planSvc:PlanService ) {
-    this.form = this.buildForm();
+  constructor(@Inject(MAT_DIALOG_DATA) 
+    public selectedCustomer:CustomerI, 
+    private dialogRef:MatDialogRef<AddPlanToCustomerComponent>, 
+    private planSvc:PlanService,
+    private snackBar: MatSnackBar){
+      this.form = this.buildForm();
   }
   ngOnInit(): void {
   }
@@ -27,14 +32,17 @@ export class AddPlanToCustomerComponent implements OnInit {
       selectedValue: new FormControl('', [Validators.required,]),
     });
   }
+
   addPlan(){
+    /*
     if(this.selectedCustomer.hasOwnProperty('subscription')){
-      this.selectedCustomer.subscription?.plan?.push(this.selectedValue)
-    }
-    else{
-      const subscriptionToAdd= this.createSubscription(this.selectedValue)
-      this.selectedCustomer.subscription= subscriptionToAdd;
-    }
+      //this.selectedCustomer.subscription?.plan?.push(this.selectedValue) correcto si el usuario pudiese tener multiples planes
+      this.userHasPlan()
+    }*/
+  
+    const subscriptionToAdd= this.createSubscription(this.selectedValue)
+    this.selectedCustomer.subscription= subscriptionToAdd;
+    this.PlanAdded()
     this.dialogRef.close()
   }
   createSubscription(initialPlan: PlanI){
@@ -52,4 +60,17 @@ export class AddPlanToCustomerComponent implements OnInit {
 
     return newSub
   }
+
+
+
+
+
+  PlanAdded() {
+    this.snackBar.open('Se ha agregado plan al usuario','',{
+      duration: 3000,
+      horizontalPosition:'center',
+      verticalPosition:'bottom'
+    })
+  }
+
 }

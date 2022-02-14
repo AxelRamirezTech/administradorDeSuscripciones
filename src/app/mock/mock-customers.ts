@@ -32,18 +32,6 @@ export const CUSTOMERS: CustomerI[] = [
                     //updatedAt?:'1/1/1',
                     //updatedBy?:string,         
                 },
-                {
-                    uuid: '123123-397f-413b-a138-29575320ef20', 
-                    name: 'plan 2',
-                    price: 11,
-                    duration: 2,
-                    validated: true,
-                    //deleted?: false,
-                    createdAt:'2/2/2',//string?
-                    creadtedBy:'1',
-                    //updatedAt?:'1/1/1',
-                    //updatedBy?:string,         
-                },
                 ]
         }
 

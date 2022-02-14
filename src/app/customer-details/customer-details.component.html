@@ -3,19 +3,26 @@
 <h1>Cliente: {{data.fullName}}</h1>
 <mat-list>
     <div *ngIf="data.subscription">
-        <div mat-subheader>Suscripciones</div>
+        <div mat-subheader>Suscripción </div> 
+        <button mat-icon-button (click)="deleteSubscriptionFromCustomer()">
+            <mat-icon>delete</mat-icon>
+        </button>
+
         <mat-list-item >
         <mat-icon mat-list-icon>star</mat-icon>
-            <div mat-line >Id: {{data.subscription.uuid}}</div>
+            <div mat-line >
+                Id: {{data.subscription.uuid}}
+                <mat-slide-toggle [(ngModel)]="data.subscription.enabled"></mat-slide-toggle>
+            </div>
             <div mat-line >Precio: {{data.subscription.price}}</div>
             <div mat-line >Duración en meses: {{data.subscription.duration}}</div>
             <div mat-line >Fecha inicial: {{data.subscription.startDate}}</div>
-            <div mat-line >Fecha final: {{data.subscription.endDate}}</div>
+            <div mat-line >Fecha final: {{data.subscription.endDate}} </div>
         </mat-list-item>
 
 
         
-        <div mat-subheader>Planes</div>
+        <div mat-subheader>Plan</div>
         <mat-list-item *ngFor="let plan of data.subscription.plan">
         <mat-icon mat-list-icon>note</mat-icon>
             <div mat-line>Id: {{plan.uuid}}</div>
@@ -30,17 +37,17 @@
     </div>
 
     <div *ngIf="!data.subscription">
-        <div mat-subheader>Suscripciones</div>
+        <div mat-subheader>Suscripcion</div>
         <mat-list-item >
         <mat-icon mat-list-icon>star</mat-icon>
-        <div mat-line>El usuario no tiene Suscripciones</div>
+        <div mat-line>El usuario no tiene Suscripcion</div>
         </mat-list-item>
 
         <mat-divider></mat-divider>
-        <div mat-subheader>Planes</div>
+        <div mat-subheader>Plan</div>
         <mat-list-item>
         <mat-icon mat-list-icon>note</mat-icon>
-        <div mat-line>El usuario no tiene planes</div>
+        <div mat-line>El usuario no tiene plan</div>
         </mat-list-item>
     </div>
 

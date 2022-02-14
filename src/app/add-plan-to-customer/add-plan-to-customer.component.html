@@ -5,14 +5,14 @@
 <form>
     <mat-form-field appearance="fill">
       <mat-label>Planes</mat-label>
-      <mat-select [(ngModel)]="selectedValue" name="food">
-        <mat-option *ngFor="let plan of plans" [value]="plan">
+      <mat-select [(ngModel)]="selectedValue" name="plan">
+        <mat-option *ngFor="let plan of plans" [value]="plan" >
           {{plan.name}}
         </mat-option>
       </mat-select>
     </mat-form-field>
     <p></p>
-    <button mat-raised-button color="primary" (click)="addPlan()">Agregar suscripción</button>
+    <button *ngIf="selectedValue?.validated" mat-raised-button color="primary" (click)="addPlan()">Agregar suscripción</button>
 </form>
 
 
