@@ -10,8 +10,8 @@ export const PLANS: PlanI[] = [
         //deleted?: false,
         createdAt:'1/1/1',//string?
         creadtedBy:'1',
-        //updatedAt?:'1/1/1',
-        //updatedBy?:string,
+        updatedAt:'1/1/1',
+        updatedBy:'1/1/1'
 
     },
 ];

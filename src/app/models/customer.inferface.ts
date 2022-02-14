@@ -15,6 +15,8 @@ export interface Subscription{
     price: number;
     duration: number;
     enabled: boolean;
+    startDate?: string;
+    endDate?: string;
     plan?:PlanI[] ;
 
 }
@@ -29,7 +31,8 @@ export interface PlanI{
 
     creadtedBy?:string;
     createdAt?:string;//string/date?
-    updatedAt?:string;
     updatedBy?:string;
+    updatedAt?:string;
+    
 }
 

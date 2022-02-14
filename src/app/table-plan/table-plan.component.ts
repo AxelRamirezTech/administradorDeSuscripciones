@@ -21,7 +21,7 @@ export class TablePlanComponent implements AfterViewInit {
 
   plans= [...this.plansSvc.plans];
   dataSource = new MatTableDataSource <PlanI>(this.plans); 
-  displayedColumns: string[] = ['id', 'name', 'price', 'duration', 'validated', 'created', 'manage'];
+  displayedColumns: string[] = ['id', 'name', 'price', 'duration', 'validated', 'created','edited', 'manage'];
 
 
 
@@ -80,7 +80,6 @@ export class TablePlanComponent implements AfterViewInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
 
 
 }

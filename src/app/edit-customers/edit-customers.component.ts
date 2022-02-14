@@ -31,8 +31,6 @@ export class EditCustomersComponent implements OnInit {
       fullName: new FormControl(this.data.fullName, [Validators.required])
     });
   }
-  
-
 
   editCustomer(){
     const {Rut, companyRut, fullName} = this.form.value;

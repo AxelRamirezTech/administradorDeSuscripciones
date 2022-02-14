@@ -56,7 +56,7 @@ export class AddPlanToCustomerComponent implements OnInit {
     const price = initialPlan.price
     const duration = initialPlan.duration
     const enabled = true
-    const plan= [initialPlan]
+    const plan= [initialPlan] //Agregar la fecha inicial y final 
     const newSub={uuid, validated, price, duration, enabled, plan}
 
     return newSub

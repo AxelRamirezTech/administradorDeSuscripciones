@@ -2,6 +2,7 @@ import { Component, OnInit, Inject} from '@angular/core';
 import { FormControl,FormGroup , Validators} from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { PlanI } from '../models/customer.inferface';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-edit-plans',
@@ -10,12 +11,14 @@ import { PlanI } from '../models/customer.inferface';
 })
 export class EditPlansComponent implements OnInit {
   form: FormGroup;
+  today:string;
 
 
-
-  constructor(@Inject(MAT_DIALOG_DATA) public data:PlanI, private dialogRef:MatDialogRef<EditPlansComponent>) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data:PlanI, private dialogRef:MatDialogRef<EditPlansComponent>,private auth: AuthService) {
     this.form = this.buildForm();
+    this.today = new Intl.DateTimeFormat('es-CL',{year:'numeric',month:'long',day:'numeric'}).format(Date.now());
    }
+
  
 
 
@@ -36,7 +39,9 @@ export class EditPlansComponent implements OnInit {
 
   editPlans(){
     const {name, price, duration} = this.form.value;
-    this.dialogRef.close({...this.data,name, price,duration})
+    const updatedBy = this.auth.userSvc;
+    const updatedAt = this.today;
+    this.dialogRef.close({...this.data,name, price,duration,updatedBy,updatedAt})
   
   }
 }

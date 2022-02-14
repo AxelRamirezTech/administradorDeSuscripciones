@@ -13,7 +13,6 @@ export class RegisterComponent implements OnInit {
   
 
   form: FormGroup;
-
   constructor(private _snackBar: MatSnackBar,private auth: AuthService, private router: Router) {
     this.form = this.buildForm();
   }
