@@ -1,7 +1,6 @@
 import { Component, OnInit, Inject} from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CustomerI } from '../models/customer.inferface';
-import { CustomerService } from '../services/customer.service';
 
 
 @Component({
@@ -12,10 +11,7 @@ import { CustomerService } from '../services/customer.service';
 export class CustomerDetailsComponent implements OnInit {
 
 
-  constructor(@Inject(MAT_DIALOG_DATA) 
-    public data:CustomerI, 
-    private dialogRef:MatDialogRef<CustomerDetailsComponent>,
-    private customerSvc:CustomerService){
+  constructor(@Inject(MAT_DIALOG_DATA) public data:CustomerI){
   }
   
   ngOnInit(): void {

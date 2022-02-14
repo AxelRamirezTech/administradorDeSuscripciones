@@ -12,7 +12,7 @@
         <mat-icon mat-list-icon>star</mat-icon>
             <div mat-line >
                 Id: {{data.subscription.uuid}}
-                <mat-slide-toggle [(ngModel)]="data.subscription.enabled"></mat-slide-toggle>
+                <mat-slide-toggle [(ngModel)]="data.subscription.validated"></mat-slide-toggle>
             </div>
             <div mat-line >Precio: {{data.subscription.price}}</div>
             <div mat-line >Duración en meses: {{data.subscription.duration}}</div>

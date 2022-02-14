@@ -14,7 +14,6 @@ export interface Subscription{
     validated: boolean;
     price: number;
     duration: number;
-    enabled: boolean;
     startDate?: string;
     endDate?: string;
     plan?:PlanI[] ;

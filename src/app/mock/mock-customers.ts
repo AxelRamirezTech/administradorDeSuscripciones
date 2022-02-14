@@ -18,7 +18,6 @@ export const CUSTOMERS: CustomerI[] = [
             validated: true,
             price: 21,
             duration: 3,
-            enabled: true,
             plan: [
                 {
                     uuid: 'df64faa7-397f-413b-a138-29575320ef20', 
