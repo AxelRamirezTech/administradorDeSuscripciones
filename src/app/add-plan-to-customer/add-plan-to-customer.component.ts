@@ -15,54 +15,41 @@ export class AddPlanToCustomerComponent implements OnInit {
   selectedValue!: PlanI;
   plans= [...this.planSvc.plans]
   form: FormGroup;
- 
-
+  date = new Date();
+  
   constructor(@Inject(MAT_DIALOG_DATA) public selectedCustomer:CustomerI, private dialogRef:MatDialogRef<AddPlanToCustomerComponent>, private planSvc:PlanService ) {
     this.form = this.buildForm();
-  
   }
-  
   ngOnInit(): void {
   }
-
-
   private buildForm() {
     return new FormGroup({
       selectedValue: new FormControl('', [Validators.required,]),
     });
   }
-  
-
   addPlan(){
-
     if(this.selectedCustomer.hasOwnProperty('subscription')){
       this.selectedCustomer.subscription?.plan?.push(this.selectedValue)
     }
-    
     else{
       const subscriptionToAdd= this.createSubscription(this.selectedValue)
       this.selectedCustomer.subscription= subscriptionToAdd;
     }
-
-    console.log(this.selectedCustomer)
     this.dialogRef.close()
   }
-
-
   createSubscription(initialPlan: PlanI){
-    
     const uuid = uuidv4()
     const validated = true
     const price = initialPlan.price
     const duration = initialPlan.duration
     const enabled = true
-    const plan= [initialPlan] //Agregar la fecha inicial y final 
-    const newSub={uuid, validated, price, duration, enabled, plan}
+    const plan= [initialPlan] 
+    const startDate = new Intl.DateTimeFormat('es-CL',{year:'numeric',month:'long',day:'numeric'}).format(Date.now());
+    const sumDate= this.date.setMonth(this.date.getMonth() + duration);
+    const modificationDate = new Date(sumDate);
+    const endDate = new Intl.DateTimeFormat('es-CL',{year:'numeric',month:'long',day:'numeric'}).format(modificationDate);
+    const newSub={uuid, validated, price, duration, enabled, plan,startDate,endDate}
 
     return newSub
-
-  
   }
-
-
 }
