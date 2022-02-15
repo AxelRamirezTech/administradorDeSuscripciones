@@ -16,22 +16,21 @@ export class CustomerDetailsComponent implements OnInit {
   
   ngOnInit(): void {
   }
-
   deleteSubscriptionFromCustomer(){
     delete this.data.subscription;
   }
 
-  SubscriptionEndDate(){
-    const FechaFinal = this.data.subscription?.endDate;
-    const FechaActual = new Intl.DateTimeFormat('es-CL',{year:'numeric',month:'long',day:'numeric'}).format(Date.now());
-    if(FechaActual === FechaFinal){
-      return false
-    }
-    else{
-      return true
+  expirationChecker(){
+    const localDate = new Date();
+    const localDateNumber = localDate.setMonth(localDate.getMonth()+0);
+    const endDate = this.data.subscription?.endDate;
+    if (endDate){
+      if (localDateNumber >= endDate){
+        if(this.data.subscription?.validated ){
+
+        }
+      }
     }
   }
-
-
 
 }

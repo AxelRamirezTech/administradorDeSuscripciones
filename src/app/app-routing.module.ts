@@ -7,7 +7,6 @@ import { AdminGuard } from './admin.guard'
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AddCustumersComponent } from './add-custumers/add-custumers.component';
 import { EditCustomersComponent } from './edit-customers/edit-customers.component';
-import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   {path:'',component:LoginComponent}, // cambiar despues a component:LoginComponent  DashboardComponent
@@ -15,7 +14,6 @@ const routes: Routes = [
   {path:'dashboard',component:DashboardComponent,canActivate:[AdminGuard]},
   {path:'add-custumers',component:AddCustumersComponent},
   {path:'edit-customers',component:EditCustomersComponent},
-  {path:'contact', component:ContactComponent},
   {path:'**',component:PageNotFoundComponent}
 ];
 

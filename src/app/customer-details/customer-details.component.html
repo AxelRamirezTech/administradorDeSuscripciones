@@ -22,12 +22,10 @@
              </ul>
             <div mat-line >Precio: {{data.subscription.price}}</div>       
             <div mat-line >Duración en meses: {{data.subscription.duration}}</div>
-            <div mat-line >Fecha inicial: {{data.subscription.startDate}}</div>
-            <div mat-line >Fecha final: {{data.subscription.endDate}} </div>
+            <div mat-line >Fecha inicial: {{data.subscription.startDate | date:'medium'}}</div>
+            <div mat-line >Fecha final: {{data.subscription.endDate | date:'medium'}} </div>
         </mat-list-item>
 
-
-        
         <div mat-subheader>Plan</div>
         <mat-list-item *ngFor="let plan of data.subscription.plan">
         <mat-icon mat-list-icon>note</mat-icon>

@@ -40,7 +40,6 @@ import { TablePlanComponent } from './table-plan/table-plan.component';
 import { EditPlansComponent } from './edit-plans/edit-plans.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 import { AddPlanToCustomerComponent } from './add-plan-to-customer/add-plan-to-customer.component';
-import { ContactComponent } from './contact/contact.component';
 import { TableCustomersComponent } from './table-customers/table-pagination-example.component';
 
 
@@ -60,7 +59,6 @@ import { TableCustomersComponent } from './table-customers/table-pagination-exam
     EditPlansComponent,
     CustomerDetailsComponent,
     AddPlanToCustomerComponent,
-    ContactComponent,
 
     
 

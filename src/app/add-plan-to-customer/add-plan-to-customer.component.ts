@@ -52,12 +52,12 @@ export class AddPlanToCustomerComponent implements OnInit {
     const duration = initialPlan.duration
     const enabled = true
     const plan= [initialPlan] 
-    const startDate = new Intl.DateTimeFormat('es-CL',{year:'numeric',month:'long',day:'numeric'}).format(Date.now());
-    const sumDate= this.date.setMonth(this.date.getMonth() + duration);
-    const modificationDate = new Date(sumDate);
-    const endDate = new Intl.DateTimeFormat('es-CL',{year:'numeric',month:'long',day:'numeric'}).format(modificationDate);
+    const startDate = this.date.setMonth(this.date.getMonth());
+    const endDate= this.date.setMonth(this.date.getMonth() + duration);
+    console.log(startDate,endDate)
+    const a = new Date(startDate)
+    console.log(a)
     const newSub={uuid, validated, price, duration, enabled, plan,startDate,endDate}
-
     return newSub
   }
 
@@ -66,7 +66,7 @@ export class AddPlanToCustomerComponent implements OnInit {
 
 
   PlanAdded() {
-    this.snackBar.open('Se ha agregado plan al usuario','',{
+    this.snackBar.open('El usuario se ha suscrito ','',{
       duration: 3000,
       horizontalPosition:'center',
       verticalPosition:'bottom'
