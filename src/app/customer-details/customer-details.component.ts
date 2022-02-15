@@ -21,4 +21,17 @@ export class CustomerDetailsComponent implements OnInit {
     delete this.data.subscription;
   }
 
+  SubscriptionEndDate(){
+    const FechaFinal = this.data.subscription?.endDate;
+    const FechaActual = new Intl.DateTimeFormat('es-CL',{year:'numeric',month:'long',day:'numeric'}).format(Date.now());
+    if(FechaActual === FechaFinal){
+      return false
+    }
+    else{
+      return true
+    }
+  }
+
+
+
 }

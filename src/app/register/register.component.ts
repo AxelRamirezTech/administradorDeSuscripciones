@@ -3,6 +3,7 @@ import { FormControl,FormGroup, Validators} from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { NG_VALIDATORS } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  
+  unamePattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}/";
 
   form: FormGroup;
   constructor(private _snackBar: MatSnackBar,private auth: AuthService, private router: Router) {
@@ -29,7 +30,7 @@ export class RegisterComponent implements OnInit {
         this.redirect()
       }
     else {
-      this.error()
+      this.auth.errorEmailAndPass(email)
     }
 }
   
@@ -46,21 +47,21 @@ export class RegisterComponent implements OnInit {
     this.router.navigate([''])
     }
   
-  error(){
-    this._snackBar.open('Las contraseñas deben ser iguales o el usuario ya esta registado','',{
-    duration: 3000,
-    horizontalPosition:'center',
-    verticalPosition:'bottom'
-  })
-
-
+    messagePassword(){
+      this._snackBar.open('La contraseña debe tener entre 8 a 100 caracteres, una mayuscula, una minuscula y al menos 1 numero','',{
+      duration: 5000,
+      horizontalPosition:'center',
+      verticalPosition:'bottom'})
   }
+
+
+  
 
   private buildForm() {
     return new FormGroup({
       email: new FormControl('', [Validators.email,Validators.required]),
-      password: new FormControl('', [Validators.required]),
-      repeatPassword: new FormControl('', [Validators.required])
+      password: new FormControl('', Validators.required),
+      repeatPassword: new FormControl('',Validators.required),
     });
   }
 }

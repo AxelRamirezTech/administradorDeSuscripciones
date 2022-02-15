@@ -13,7 +13,7 @@
       
             <mat-form-field class="ancho" appearance="fill">
             <mat-label>Contraseña</mat-label>
-              <input type="password" matInput autocomplete="off" formControlName="password" >
+              <input type="password" matInput autocomplete="off" formControlName="password" ngModel pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,}$" (click)="messagePassword()">
             </mat-form-field>
 
             <mat-form-field class="ancho" appearance="fill">

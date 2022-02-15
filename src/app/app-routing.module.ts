@@ -10,7 +10,7 @@ import { EditCustomersComponent } from './edit-customers/edit-customers.componen
 import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
-  {path:'',component:DashboardComponent}, // cambiar despues a component:LoginComponent  DashboardComponent
+  {path:'',component:LoginComponent}, // cambiar despues a component:LoginComponent  DashboardComponent
   {path:'register',component:RegisterComponent},
   {path:'dashboard',component:DashboardComponent,canActivate:[AdminGuard]},
   {path:'add-custumers',component:AddCustumersComponent},

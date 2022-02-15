@@ -4,17 +4,23 @@
 <mat-list>
     <div *ngIf="data.subscription">
         <div mat-subheader>Suscripción </div> 
-        <button mat-icon-button (click)="deleteSubscriptionFromCustomer()">
-            <mat-icon>delete</mat-icon>
-        </button>
+
 
         <mat-list-item >
-        <mat-icon mat-list-icon>star</mat-icon>
-            <div mat-line >
-                Id: {{data.subscription.uuid}}
-                <mat-slide-toggle [(ngModel)]="data.subscription.validated"></mat-slide-toggle>
-            </div>
-            <div mat-line >Precio: {{data.subscription.price}}</div>
+         <mat-icon mat-list-icon>star</mat-icon>
+            <div mat-line>Id: {{data.subscription.uuid}}</div>
+            <ul class="none">
+                <li>
+                    <mat-slide-toggle [(ngModel)]="data.subscription.validated" >Habilitado</mat-slide-toggle>
+                </li>
+                <li>
+                    <button  mat-icon-button (click)="deleteSubscriptionFromCustomer()">
+                        <mat-icon>delete</mat-icon>
+                        <span>Eliminar</span>
+                    </button>
+                </li>
+             </ul>
+            <div mat-line >Precio: {{data.subscription.price}}</div>       
             <div mat-line >Duración en meses: {{data.subscription.duration}}</div>
             <div mat-line >Fecha inicial: {{data.subscription.startDate}}</div>
             <div mat-line >Fecha final: {{data.subscription.endDate}} </div>

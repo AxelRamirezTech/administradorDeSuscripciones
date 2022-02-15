@@ -6,7 +6,7 @@ import { PlanI } from '../models/customer.inferface';
   providedIn: 'root'
 })
 export class PlanService {
-
+  
   constructor() { }
   plans= [...PLANS];
   targetPlan?=this.plans[0];
@@ -41,12 +41,9 @@ export class PlanService {
         this.plans[index]= editedPlan
 
       }
-  
-    
- 
-
-
   }
+
+
 
 
 

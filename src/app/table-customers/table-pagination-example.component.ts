@@ -46,8 +46,6 @@ export class TableCustomersComponent implements AfterViewInit{
       }
     })
   }
-  
-
 
   editCustomer(targetCustomer: CustomerI){
     const editDialog=this.dialog.open(EditCustomersComponent,{data:targetCustomer})
@@ -62,8 +60,10 @@ export class TableCustomersComponent implements AfterViewInit{
   viewCustomerSubsAndPlans(targetCustomer: CustomerI){
     const detailsDialog=this.dialog.open(CustomerDetailsComponent,{data:targetCustomer})
     detailsDialog.afterClosed()
-    console.log(targetCustomer)
+
   }
+  
+
 
 
   addPlanToCustomer(targetCustomer: CustomerI){
@@ -101,9 +101,6 @@ export class TableCustomersComponent implements AfterViewInit{
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-
-
-
   error(message:string) {
     this.snackBar.open(message,'',{
       duration: 3000,
@@ -111,6 +108,7 @@ export class TableCustomersComponent implements AfterViewInit{
       verticalPosition:'bottom'
     })
   }
+
 
 }
 
