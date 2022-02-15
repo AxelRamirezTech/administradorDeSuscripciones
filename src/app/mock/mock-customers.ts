@@ -15,7 +15,7 @@ export const CUSTOMERS: CustomerI[] = [
             uuid:'511c8752-13d0-460a-a957-879e8d74b8f0	',
             validated: true,
             price: 21,
-            duration: 3,
+            duration: 0,
             startDate: 1,
             endDate: 1,
             plan: [
@@ -23,8 +23,8 @@ export const CUSTOMERS: CustomerI[] = [
                     uuid: 'df64faa7-397f-413b-a138-29575320ef20', 
                     name: 'plan 1',
                     price: 21,
-                    duration: 1,
-                    validated: true,
+                    duration: 0,
+                    validated: false,
                     //deleted?: false,
                     createdAt: 1,//string?
                     creadtedBy:'juan',

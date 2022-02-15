@@ -13,7 +13,10 @@
       
             <mat-form-field class="ancho" appearance="fill">
             <mat-label>Contraseña</mat-label>
-              <input type="password" matInput autocomplete="off" formControlName="password" ngModel pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,}$" (click)="messagePassword()">
+              <input type="password" matInput autocomplete="off" formControlName="password" ngModel pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,100}$" (click)="messagePassword()">
+              <mat-error *ngIf="form.getError('required')">
+                <strong>Emaail</strong> es requerido
+              </mat-error>
             </mat-form-field>
 
             <mat-form-field class="ancho" appearance="fill">

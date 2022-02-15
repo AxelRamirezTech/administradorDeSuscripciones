@@ -21,7 +21,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
   
-
   newUser(){
     const {email, password, repeatPassword} = this.form.value;
     if(password === repeatPassword && this.auth.isEmailDisponible(email)){
@@ -33,7 +32,7 @@ export class RegisterComponent implements OnInit {
       this.auth.errorEmailAndPass(email)
     }
 }
-  
+
   registeredMessage() {
     this.form.reset();
     this._snackBar.open('Usuario registrado','',{
