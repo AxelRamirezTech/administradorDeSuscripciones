@@ -19,13 +19,9 @@ export class AddPlanComponent implements OnInit {
     this.today = new Date()
    }
  
-
-
   ngOnInit(): void {
   }
   
-
-
   private buildForm() {
     return new FormGroup({
       name: new FormControl('', [Validators.required,]),

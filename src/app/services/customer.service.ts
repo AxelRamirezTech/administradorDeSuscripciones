@@ -11,8 +11,6 @@ export class CustomerService {
   customers= [...CUSTOMERS];
   targetCustomer?=this.customers[0];
 
-
-
   addNewCustomer(uuid:string, Rut:string, companyRut:string, fullName:string){
     const enabled= false
     const newCustomer = {uuid, Rut, companyRut, fullName, enabled}

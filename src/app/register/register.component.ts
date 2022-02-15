@@ -52,10 +52,7 @@ export class RegisterComponent implements OnInit {
       horizontalPosition:'center',
       verticalPosition:'bottom'})
   }
-
-
   
-
   private buildForm() {
     return new FormGroup({
       email: new FormControl('', [Validators.email,Validators.required]),

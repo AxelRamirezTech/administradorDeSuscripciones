@@ -6,7 +6,6 @@ import { PlanService } from '../services/plan.service'
 import { v4 as uuidv4 } from 'uuid';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-
 @Component({
   selector: 'app-add-plan-to-customer',
   templateUrl: './add-plan-to-customer.component.html',
@@ -34,17 +33,12 @@ export class AddPlanToCustomerComponent implements OnInit {
   }
 
   addPlan(){
-    /*
-    if(this.selectedCustomer.hasOwnProperty('subscription')){
-      //this.selectedCustomer.subscription?.plan?.push(this.selectedValue) correcto si el usuario pudiese tener multiples planes
-      this.userHasPlan()
-    }*/
-  
     const subscriptionToAdd= this.createSubscription(this.selectedValue)
     this.selectedCustomer.subscription= subscriptionToAdd;
     this.PlanAdded()
     this.dialogRef.close()
   }
+
   createSubscription(initialPlan: PlanI){
     const uuid = uuidv4()
     const validated = true
@@ -54,16 +48,10 @@ export class AddPlanToCustomerComponent implements OnInit {
     const plan= [initialPlan] 
     const startDate = this.date.setMonth(this.date.getMonth());
     const endDate= this.date.setMonth(this.date.getMonth() + duration);
-    console.log(startDate,endDate)
     const a = new Date(startDate)
-    console.log(a)
     const newSub={uuid, validated, price, duration, enabled, plan,startDate,endDate}
     return newSub
   }
-
-
-
-
 
   PlanAdded() {
     this.snackBar.open('El usuario se ha suscrito ','',{

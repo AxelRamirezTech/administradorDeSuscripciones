@@ -44,8 +44,7 @@ export class LoginComponent implements OnInit {
       this.error()
     }
   }
-
-
+  
   error() {
     this._snackBar.open('Email o Contraseña incorrecta','',{
       duration: 5000,
@@ -53,7 +52,6 @@ export class LoginComponent implements OnInit {
       verticalPosition:'bottom'
     })
   }
-
 
   access(){
   this.router.navigate(['dashboard'])

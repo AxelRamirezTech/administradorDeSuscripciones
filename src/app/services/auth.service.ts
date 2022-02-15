@@ -40,7 +40,7 @@ export class AuthService {
   receiveEmail(userReceived:string){ 
       this.userSvc = userReceived;
   }
-
+  
   errorEmailAndPass(email:string){
     const found = this.users.find(user => user.email === email);
     if (found?.email === email) {

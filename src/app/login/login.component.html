@@ -1,25 +1,16 @@
-
-
-
-
 <body class="body">
   <div class="login">
     <img width="50%" src="../assets/img/pentagram.png"  >
-    
     <h1>Inicio sesión</h1>
-
     <form [formGroup]="form" (ngSubmit)="login()">
-
       <mat-form-field class="ancho" appearance="fill">
         <mat-label>Email</mat-label>
         <input type="text" matInput autocomplete="off" formControlName="email">
       </mat-form-field>
-
       <mat-form-field class="ancho" appearance="fill" >
         <mat-label>Contraseña</mat-label>
         <input type="password" matInput autocomplete="off" formControlName="password"> 
       </mat-form-field>
-      
       <button type="submit" class="ancho button" mat-raised-button color="primary" [disabled]="form.invalid">Ingresar</button>
     </form>
     <br>

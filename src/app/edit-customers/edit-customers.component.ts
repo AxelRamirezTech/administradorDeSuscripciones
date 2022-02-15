@@ -17,12 +17,8 @@ export class EditCustomersComponent implements OnInit {
     this.form = this.buildForm();
    }
  
-
-
   ngOnInit(): void {
   }
-  
-
 
   private buildForm() {
     return new FormGroup({
@@ -35,10 +31,6 @@ export class EditCustomersComponent implements OnInit {
   editCustomer(){
     const {Rut, companyRut, fullName} = this.form.value;
     this.dialogRef.close({...this.data,Rut,companyRut,fullName})
-  }
-
-  editV(){
-    
   }
 
 }
