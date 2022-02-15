@@ -14,7 +14,7 @@ export class PlanService {
 
 
 
-  addNewPlanToTable(uuid:string, name:string, price: number, duration:number, createdAt:string, creadtedBy:string){
+  addNewPlanToTable(uuid:string, name:string, price: number, duration:number, createdAt:number, creadtedBy:string){
     const validated= false
     const newPlan = {uuid, name, price, duration, validated, createdAt, creadtedBy}
     this.plans.push(newPlan);

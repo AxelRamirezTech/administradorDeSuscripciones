@@ -29,8 +29,8 @@ export const CUSTOMERS: CustomerI[] = [
                     duration: 1,
                     validated: true,
                     //deleted?: false,
-                    createdAt:'1/1/1',//string?
-                    creadtedBy:'1',
+                    createdAt: 1,//string?
+                    creadtedBy:'juan',
                     //updatedAt?:'1/1/1',
                     //updatedBy?:string,         
                 },

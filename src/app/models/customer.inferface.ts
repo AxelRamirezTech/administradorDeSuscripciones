@@ -29,9 +29,9 @@ export interface PlanI{
     deleted?: boolean;
 
     creadtedBy:string;
-    createdAt:string;//string/date?
+    createdAt:number;//string/date?
     updatedBy?:string;
-    updatedAt?:string;
+    updatedAt?:number;
     
 }
 
