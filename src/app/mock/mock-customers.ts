@@ -14,10 +14,13 @@ export const CUSTOMERS: CustomerI[] = [
         enabled: true,
         subscription:
         {
+
             uuid:'511c8752-13d0-460a-a957-879e8d74b8f0	',
             validated: true,
             price: 21,
             duration: 3,
+            startDate: 1,
+            endDate: 1,
             plan: [
                 {
                     uuid: 'df64faa7-397f-413b-a138-29575320ef20', 
