@@ -33,10 +33,10 @@
             <div mat-line>Nombre del plan asociado: {{plan.name}}</div>
             <div mat-line>Precio: {{plan.price}}</div>
             <div mat-line>Duración en meses: {{plan.duration}}</div>
-            <div mat-line>Fecha de creación: {{plan.createdAt | date:'medium'}}</div>
+            <div mat-line>Fecha de creación de plan: {{plan.createdAt | date:'medium'}}</div>
             <div mat-line>Creado por: {{plan.creadtedBy}}</div>
-            <div mat-line>Fecha de modificación: {{plan.updatedAt | date:'medium' }}</div>
-            <div mat-line>Modificado por: {{plan.updatedBy}}</div>
+            <div mat-line *ngIf="plan.updatedAt">Fecha de modificación de plan: {{plan.updatedAt | date:'medium' }}</div>
+            <div mat-line *ngIf="plan.updatedBy">Modificado por: {{plan.updatedBy}}</div>
         </mat-list-item>
     </div>
 
