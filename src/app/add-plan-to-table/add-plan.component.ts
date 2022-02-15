@@ -12,11 +12,11 @@ import { AuthService } from '../services/auth.service';
 })
 export class AddPlanComponent implements OnInit {
   form: FormGroup;
-  today:string;
+  today:Date;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data:CustomerI,private auth: AuthService, private dialogRef:MatDialogRef<AddPlanComponent>) {
     this.form = this.buildForm();
-    this.today = new Intl.DateTimeFormat('es-CL',{year:'numeric',month:'long',day:'numeric'}).format(Date.now());
+    this.today = new Date()
    }
  
 
