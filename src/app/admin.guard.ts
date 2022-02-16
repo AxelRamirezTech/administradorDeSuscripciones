@@ -15,14 +15,11 @@ export class AdminGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    
+      
     if (this.auth.isUserLoggedIn== false){
       this.router.navigate(['/']);
       return false
-
     }
     return this.auth.isUserLoggedIn
-
   }
-  
 }

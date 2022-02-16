@@ -6,19 +6,15 @@ import { PlanI } from '../models/customer.inferface';
   providedIn: 'root'
 })
 export class PlanService {
-
+  
   constructor() { }
   plans= [...PLANS];
   targetPlan?=this.plans[0];
 
-
-
-
-  addNewPlanToTable(uuid:string, name:string, price: number, duration:number, createdAt:string, creadtedBy:string){
+  addNewPlanToTable(uuid:string, name:string, price: number, duration:number, createdAt:number, creadtedBy:string){
     const validated= false
     const newPlan = {uuid, name, price, duration, validated, createdAt, creadtedBy}
     this.plans.push(newPlan);
-    console.log(newPlan)
   }
 
   deletePlan(planToDelete:PlanI){
@@ -33,21 +29,10 @@ export class PlanService {
   }
 
   editPlan(uuid:string, editedPlan:PlanI){
-
       const index = this.plans.findIndex(item =>item.uuid === uuid);
       console.log('index a editar',index)
-  
       if (index > -1) {
         this.plans[index]= editedPlan
-
       }
-  
-    
- 
-
-
   }
-
-
-
 }

@@ -20,13 +20,9 @@ export class AddCustumersComponent implements OnInit {
     this.form = this.buildForm();
    }
  
-
-
   ngOnInit(): void {
   }
   
-
-
   private buildForm() {
     return new FormGroup({
       Rut: new FormControl('', [Validators.required,]),

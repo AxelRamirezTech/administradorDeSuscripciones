@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
@@ -40,9 +40,12 @@ import { TablePlanComponent } from './table-plan/table-plan.component';
 import { EditPlansComponent } from './edit-plans/edit-plans.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 import { AddPlanToCustomerComponent } from './add-plan-to-customer/add-plan-to-customer.component';
-import { ContactComponent } from './contact/contact.component';
 import { TableCustomersComponent } from './table-customers/table-pagination-example.component';
 
+/*Importación local */ 
+import localeEs from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common'
+registerLocaleData(localeEs,'es')
 
 
 @NgModule({
@@ -60,11 +63,6 @@ import { TableCustomersComponent } from './table-customers/table-pagination-exam
     EditPlansComponent,
     CustomerDetailsComponent,
     AddPlanToCustomerComponent,
-    ContactComponent,
-
-    
-
-
   ],
   imports: [
     BrowserModule,
@@ -88,12 +86,12 @@ import { TableCustomersComponent } from './table-customers/table-pagination-exam
     MatSlideToggleModule,
     MatExpansionModule,
     MatSelectModule,
-    MatListModule
+    MatListModule,
 
     
 
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

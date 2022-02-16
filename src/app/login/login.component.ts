@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
 
   USERS= USERS;
   form: FormGroup;
+ 
 
   constructor(private _snackBar: MatSnackBar, private router: Router, private auth: AuthService) {
     this.form = this.buildForm();
@@ -32,9 +33,10 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    const sendEmail = this.form.value.email;
+    this.auth.receiveEmail(sendEmail)
     const {email, password} = this.form.value;
     this.auth.checkUser(email,password)
-    
     if(this.auth.isUserLoggedIn == true){
       this.access()
     }
@@ -42,8 +44,7 @@ export class LoginComponent implements OnInit {
       this.error()
     }
   }
-
-
+  
   error() {
     this._snackBar.open('Email o Contraseña incorrecta','',{
       duration: 5000,
@@ -51,7 +52,6 @@ export class LoginComponent implements OnInit {
       verticalPosition:'bottom'
     })
   }
-
 
   access(){
   this.router.navigate(['dashboard'])

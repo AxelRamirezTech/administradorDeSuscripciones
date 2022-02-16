@@ -11,8 +11,6 @@ export class CustomerService {
   customers= [...CUSTOMERS];
   targetCustomer?=this.customers[0];
 
-
-
   addNewCustomer(uuid:string, Rut:string, companyRut:string, fullName:string){
     const enabled= false
     const newCustomer = {uuid, Rut, companyRut, fullName, enabled}
@@ -34,7 +32,6 @@ export class CustomerService {
   editCustomer(uuid:string, customer:CustomerI){
 
       const index = this.customers.findIndex(item =>item.uuid === uuid);
-      console.log('index a editar',index)
   
       if (index > -1) {
         this.customers[index]= customer
@@ -42,13 +39,10 @@ export class CustomerService {
       }
   }
 
-  addPlan(customer:CustomerI){
 
-  }
+  
 
-  viewCustomerDetails(customer:CustomerI){
-    
-  }
+
 
 
 }

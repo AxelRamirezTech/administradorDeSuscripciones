@@ -11,6 +11,7 @@ import { CustomerDetailsComponent } from '../customer-details/customer-details.c
 import { AddPlanToCustomerComponent } from '../add-plan-to-customer/add-plan-to-customer.component';
 import { firstValueFrom } from 'rxjs';
 import { MatSort } from '@angular/material/sort';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-table-customers',
@@ -25,7 +26,7 @@ export class TableCustomersComponent implements AfterViewInit{
   displayedColumns: string[] = ['id', 'Rut', 'companyRut', 'fullName', 'enabled', 'suscripcion/plan', 'manage'];
   
 
-  constructor(private customersSvc:CustomerService, private dialog:MatDialog) {
+  constructor(private customersSvc:CustomerService, private dialog:MatDialog, private snackBar: MatSnackBar) {
   }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -45,8 +46,6 @@ export class TableCustomersComponent implements AfterViewInit{
       }
     })
   }
-  
-
 
   editCustomer(targetCustomer: CustomerI){
     const editDialog=this.dialog.open(EditCustomersComponent,{data:targetCustomer})
@@ -61,12 +60,27 @@ export class TableCustomersComponent implements AfterViewInit{
   viewCustomerSubsAndPlans(targetCustomer: CustomerI){
     const detailsDialog=this.dialog.open(CustomerDetailsComponent,{data:targetCustomer})
     detailsDialog.afterClosed()
+
   }
+  
+
 
 
   addPlanToCustomer(targetCustomer: CustomerI){
-    const detailsDialog=this.dialog.open(AddPlanToCustomerComponent,{data:targetCustomer})
-    detailsDialog.afterClosed()
+    if (targetCustomer.enabled === false){
+      this.error('no se puede agregar plan, Usuario Deshabilitado')
+    }
+
+    else if(targetCustomer.hasOwnProperty('subscription')){
+      this.error('no se puede agregar plan, Usuario ya tiene plan')
+    }
+    
+    else{
+      const detailsDialog=this.dialog.open(AddPlanToCustomerComponent,{data:targetCustomer})
+      detailsDialog.afterClosed()
+    }
+
+
 
   }
 
@@ -78,10 +92,6 @@ export class TableCustomersComponent implements AfterViewInit{
   }
 
 
-  log(){
-    console.log(this.customersSvc.customers)
-  }
-
   refresh(){
     this.dataSource.data=this.customersSvc.customers
   }
@@ -91,6 +101,13 @@ export class TableCustomersComponent implements AfterViewInit{
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  error(message:string) {
+    this.snackBar.open(message,'',{
+      duration: 3000,
+      horizontalPosition:'center',
+      verticalPosition:'bottom'
+    })
+  }
 
 
 }

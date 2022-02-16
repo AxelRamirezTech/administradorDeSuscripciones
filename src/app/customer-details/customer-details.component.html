@@ -3,36 +3,55 @@
 <h1>Cliente: {{data.fullName}}</h1>
 <mat-list>
     <div *ngIf="data.subscription">
-        <div mat-subheader>Suscripciones</div>
+        <div mat-subheader>Suscripción </div> 
+
+
         <mat-list-item >
-        <mat-icon mat-list-icon>star</mat-icon>
-        <div mat-line>id: {{data.uuid}}</div>
+         <mat-icon mat-list-icon>star</mat-icon>
+            <div mat-line>Id: {{data.subscription.uuid}}</div>
+            <ul class="none">
+                <li>
+                    <mat-slide-toggle [(ngModel)]="data.subscription.validated" >Habilitado</mat-slide-toggle>
+                </li>
+                <li>
+                    <button  mat-icon-button (click)="deleteSubscriptionFromCustomer()">
+                        <mat-icon>delete</mat-icon>
+                        <span>Eliminar</span>
+                    </button>
+                </li>
+             </ul>
+            <div mat-line >Precio: {{data.subscription.price}}</div>       
+            <div mat-line >Duración en meses: {{data.subscription.duration}}</div>
+            <div mat-line >Fecha inicial: {{data.subscription.startDate | date:'medium'}}</div>
+            <div mat-line >Fecha final: {{data.subscription.endDate | date:'medium'}} </div>
         </mat-list-item>
 
-
-        <mat-divider></mat-divider>
-        <div mat-subheader>Planes</div>
+        <div mat-subheader>Plan</div>
         <mat-list-item *ngFor="let plan of data.subscription.plan">
         <mat-icon mat-list-icon>note</mat-icon>
-        <div mat-line>{{plan.name}}</div>
-        <div mat-line>Precio: {{plan.price}} </div>
-        <div mat-line>Duracion: {{plan.duration}} Meses </div>
-        <div mat-line>Creación: {{plan.createdAt}} </div>
+            <div mat-line>Id: {{plan.uuid}}</div>
+            <div mat-line>Nombre del plan asociado: {{plan.name}}</div>
+            <div mat-line>Precio: {{plan.price}}</div>
+            <div mat-line>Duración en meses: {{plan.duration}}</div>
+            <div mat-line>Fecha de creación de plan: {{plan.createdAt | date:'medium'}}</div>
+            <div mat-line>Creado por: {{plan.creadtedBy}}</div>
+            <div mat-line *ngIf="plan.updatedAt">Fecha de modificación de plan: {{plan.updatedAt | date:'medium' }}</div>
+            <div mat-line *ngIf="plan.updatedBy">Modificado por: {{plan.updatedBy}}</div>
         </mat-list-item>
     </div>
 
     <div *ngIf="!data.subscription">
-        <div mat-subheader>Suscripciones</div>
+        <div mat-subheader>Suscripcion</div>
         <mat-list-item >
         <mat-icon mat-list-icon>star</mat-icon>
-        <div mat-line>El usuario no tiene Suscripciones</div>
+        <div mat-line>El usuario no tiene Suscripcion</div>
         </mat-list-item>
 
         <mat-divider></mat-divider>
-        <div mat-subheader>Planes</div>
+        <div mat-subheader>Plan</div>
         <mat-list-item>
         <mat-icon mat-list-icon>note</mat-icon>
-        <div mat-line>El usuario no tiene planes</div>
+        <div mat-line>El usuario no tiene plan</div>
         </mat-list-item>
     </div>
 

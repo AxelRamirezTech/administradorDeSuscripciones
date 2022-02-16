@@ -11,9 +11,7 @@ export class DashboardComponent implements OnInit {
   CUSTOMERS= CUSTOMERS;
 
   constructor() { }
-
   
-
   ngOnInit(): void {
     }
   

@@ -21,7 +21,7 @@ export class TablePlanComponent implements AfterViewInit {
 
   plans= [...this.plansSvc.plans];
   dataSource = new MatTableDataSource <PlanI>(this.plans); 
-  displayedColumns: string[] = ['id', 'name', 'price', 'duration', 'validated', 'created', 'manage'];
+  displayedColumns: string[] = ['id', 'name', 'price', 'duration', 'validated', 'created','edited', 'manage'];
 
 
 
@@ -38,8 +38,6 @@ export class TablePlanComponent implements AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
-
-
   AddPlans(){
     const addDialog=this.dialog.open(AddPlanComponent)
     firstValueFrom(addDialog.afterClosed()).then(value=>{
@@ -50,8 +48,6 @@ export class TablePlanComponent implements AfterViewInit {
     })
   }
   
-
-
   editPlans(targetPlan: PlanI){
     const editDialog=this.dialog.open(EditPlansComponent,{data:targetPlan})
     firstValueFrom(editDialog.afterClosed()).then(value=>{
@@ -61,13 +57,11 @@ export class TablePlanComponent implements AfterViewInit {
       }
     })
   }
-
   deletePlans(planToDelete: PlanI){
     this.plansSvc.deletePlan(planToDelete)
     this.dataSource.data=this.plans
     this.refresh()
   }
-
 
   log(){
     console.log(this.plansSvc.plans)
@@ -81,7 +75,4 @@ export class TablePlanComponent implements AfterViewInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
-
-
 }
